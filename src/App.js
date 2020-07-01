@@ -31,9 +31,6 @@ class App extends React.Component {
               id: snapShop.id,
               ...snapShop.data(),
             },
-          }, () => {
-            console.log('App.js');
-            console.log(this.state);
           });
         });
         
