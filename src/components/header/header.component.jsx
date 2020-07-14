@@ -10,7 +10,7 @@ import './header.styles.scss';
 
 const Header = ({ currentUser }) => (
   <div className='header'>
-    <Link to='/'>
+    <Link className='logo-container' to='/'>
       <Logo className='logo' />
     </Link>
     <div className='options'>
@@ -34,7 +34,7 @@ const Header = ({ currentUser }) => (
 );
 
 const mapStateToProps = state => ({
-  currentUser: state.currentUser
+  currentUser: state.user.currentUser
 });
 
 export default connect(mapStateToProps)(Header);
