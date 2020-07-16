@@ -21,10 +21,10 @@ class App extends React.Component {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
-        userRef.onSnapshot((snapShop) => {
+        userRef.onSnapshot(snapShot => {
           setCurrentUser({
-            id: snapShop.id,
-            ...snapShop.data(),
+            id: snapShot.id,
+            ...snapShot.data()
           });
         });
       }
@@ -61,15 +61,15 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = ( {user} ) => ({
+const mapStateToProps = ({ user }) => ({
   currentUser: user.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: (user) => dispatch(setCurrentUser(user))
+  setCurrentUser: user => dispatch(setCurrentUser(user))
 });
 
 export default connect(
-  mapStateToProps, 
+  mapStateToProps,
   mapDispatchToProps
 )(App);
